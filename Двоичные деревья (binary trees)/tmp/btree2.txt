@@ -1,0 +1,16 @@
+10
+12 cl
+6 cr
+0 gl
+4 cl
+13 cr
+0 gr
+9 cl
+7 cr
+0 gp
+0 gl
+9 cl
+0 gl
+11 cl
+0 gl
+20 cr
