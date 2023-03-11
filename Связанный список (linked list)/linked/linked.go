@@ -10,7 +10,7 @@ type Node struct {
 }
 
 // The head of the linked list
-var root *Node = new(Node)
+var root *Node = nil
 
 // Get the head of the linked list
 func GetHeadPtr() *Node {
@@ -20,7 +20,7 @@ func GetHeadPtr() *Node {
 // Add new node at the end of the list
 func Enqueue(t *Node, v int) *Node {
 	if t == nil {
-		t = &Node{Value: v, Next: nil}
+		root = &Node{Value: v, Next: nil}
 		return root
 	}
 

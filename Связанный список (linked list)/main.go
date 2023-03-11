@@ -8,7 +8,7 @@ import (
 func main() {
 	root := linked.GetHeadPtr()
 
-	for i := 1; i < 10; i++ {
+	for i := 0; i < 10; i++ {
 		root = linked.Enqueue(root, i*10)
 	}
 	linked.Traverse(root)

@@ -10,10 +10,18 @@ type Node struct {
 	Previous *Node
 }
 
+// The head of the linked list
+var root *Node = new(Node)
+
+// Get the head of the linked list
+func GetHeadPtr() *Node {
+	return root
+}
+
 // Add new node at the end of the list
 func Enqueue(t *Node, v int) *Node {
 	if t == nil {
-		root = &Node{Value: v, Next: nil}
+		t = &Node{Value: v, Next: nil}
 		return root
 	}
 
