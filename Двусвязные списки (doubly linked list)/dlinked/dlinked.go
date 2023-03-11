@@ -11,17 +11,26 @@ type Node struct {
 }
 
 // The head of the linked list
-var root *Node = new(Node)
+var (
+	root *Node = nil
+	tail *Node = nil
+)
 
 // Get the head of the linked list
 func GetHeadPtr() *Node {
 	return root
 }
 
+// Get the tail of the linked list
+func GetTailPtr() *Node {
+	return tail
+}
+
 // Add new node at the end of the list
 func Enqueue(t *Node, v int) *Node {
 	if t == nil {
-		t = &Node{Value: v, Next: nil}
+		root = &Node{Value: v, Next: nil}
+		tail = root
 		return root
 	}
 
@@ -32,6 +41,8 @@ func Enqueue(t *Node, v int) *Node {
 
 	if t.Next == nil {
 		t.Next = &Node{Value: v, Next: nil}
+		t.Next.Previous = t
+		tail = t.Next
 		return root
 	}
 
@@ -46,13 +57,11 @@ func Dequeue(root *Node) *Node {
 	}
 
 	tempHead := root
-	var prevNode *Node
 
 	for root.Next != nil {
-		prevNode = root
 		root = root.Next
 	}
-	prevNode.Next = nil
+	root.Previous.Next = nil
 
 	return tempHead
 }
@@ -113,6 +122,25 @@ func Traverse(t *Node) {
 	}
 
 	fmt.Println()
+}
+
+// Reverse printing
+func Reverse(t *Node) {
+	if t == nil {
+		fmt.Println("Empty list!")
+		return
+	}
+
+	temp := t
+	for temp.Next != nil {
+		temp = temp.Next
+	}
+
+	for temp.Previous != nil {
+		fmt.Printf("%d -> ", temp.Value)
+		temp = temp.Previous
+	}
+	fmt.Printf("%d -> \n", temp.Value)
 }
 
 // Check if the node exists in the list
