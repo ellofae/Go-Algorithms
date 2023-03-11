@@ -1,26 +1,19 @@
-package linked
+package dlinked
 
 import (
 	"fmt"
 )
 
 type Node struct {
-	Value int
-	Next  *Node
-}
-
-// The head of the linked list
-var root *Node = new(Node)
-
-// Get the head of the linked list
-func GetHeadPtr() *Node {
-	return root
+	Value    int
+	Next     *Node
+	Previous *Node
 }
 
 // Add new node at the end of the list
 func Enqueue(t *Node, v int) *Node {
 	if t == nil {
-		t = &Node{Value: v, Next: nil}
+		root = &Node{Value: v, Next: nil}
 		return root
 	}
 
