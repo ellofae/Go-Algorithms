@@ -22,6 +22,6 @@ func main() {
 	root = dlinked.Dequeue(root)
 	dlinked.Traverse(root)
 
-	fmt.Println("\nReversed:")
+	fmt.Println("\n Reversed:")
 	dlinked.Reverse(root)
 }
